@@ -18,7 +18,7 @@ export const SelectionToolbar: React.FC<SelectionToolbarProps> = ({
     return (
       <button
         onClick={onSelectAll}
-        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors dark:bg-blue-600 dark:hover:bg-blue-700"
+        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
       >
         Select All
       </button>
@@ -27,19 +27,19 @@ export const SelectionToolbar: React.FC<SelectionToolbarProps> = ({
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-sm text-gray-600 dark:text-gray-400">
+      <span className="text-sm text-gray-400">
         {selectedCount} selected
       </span>
       <button
         onClick={onCopy}
-        className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors flex items-center gap-2 dark:bg-blue-600 dark:hover:bg-blue-700"
+        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
       >
         <Copy className="w-4 h-4" />
         Copy
       </button>
       <button
         onClick={onClear}
-        className="p-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        className="p-2 text-gray-400 hover:text-white"
         title="Clear selection"
       >
         <X className="w-4 h-4" />

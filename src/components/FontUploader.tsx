@@ -28,13 +28,13 @@ export const FontUploader: React.FC = () => {
 
   return (
     <div className="w-full max-w-xl mx-auto p-6">
-      <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-white hover:bg-gray-50 hover:border-gray-400 transition-colors dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-500">
+      <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-600 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 hover:border-gray-500 transition-colors">
         <div className="flex flex-col items-center justify-center pt-5 pb-6">
-          <Upload className="w-8 h-8 mb-3 text-gray-400 dark:text-gray-500" />
-          <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">
-            <span className="font-semibold text-gray-900 dark:text-white">Click to upload</span> or drag and drop
+          <Upload className="w-8 h-8 mb-3 text-gray-500" />
+          <p className="mb-2 text-sm text-gray-400">
+            <span className="font-semibold text-white">Click to upload</span> or drag and drop
           </p>
-          <p className="text-xs text-gray-500 dark:text-gray-400">
+          <p className="text-xs text-gray-500">
             TTF, OTF, WOFF, or WOFF2
           </p>
         </div>
@@ -47,9 +47,9 @@ export const FontUploader: React.FC = () => {
       </label>
 
       {error && (
-        <div className="mt-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
-          <p className="text-sm text-red-700 dark:text-red-300">{error}</p>
+        <div className="mt-4 p-4 bg-red-900/20 border border-red-800 rounded-lg flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-red-300">{error}</p>
         </div>
       )}
     </div>
