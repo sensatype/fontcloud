@@ -63,21 +63,21 @@ export const GlyphGrid: React.FC = () => {
   }, [filteredGlyphs, selectAll]);
 
   return (
-    <div className="p-4">
-      <div className="sticky top-0 z-10 bg-white dark:bg-gray-900 p-4 -mx-4 -mt-4 mb-4 border-b dark:border-gray-700 shadow-sm">
-        <div className="flex gap-4 items-center">
-          <div className="relative flex-1">
+    <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+      <div className="sticky top-0 z-10 bg-white dark:bg-gray-900 p-4 -mx-4 -mt-4 mb-4 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div className="flex gap-4 items-center flex-wrap">
+          <div className="relative flex-1 min-w-[200px]">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
               type="text"
               placeholder="Search glyphs..."
-              className="w-full pl-10 pr-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:placeholder-gray-400"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
           <select
-            className="border rounded-lg px-4 py-2 dark:bg-gray-800 dark:border-gray-700"
+            className="border border-gray-300 rounded-lg px-4 py-2 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-800 dark:border-gray-700 dark:text-white"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
@@ -87,20 +87,20 @@ export const GlyphGrid: React.FC = () => {
           </select>
           <button
             onClick={() => setZoom(z => Math.max(0.5, z - 0.1))}
-            className="p-2 rounded-lg border dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
+            className="p-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
             title="Zoom out"
           >
-            <ZoomOut />
+            <ZoomOut className="w-5 h-5" />
           </button>
-          <div className="flex items-center px-2">
+          <div className="flex items-center px-2 text-gray-700 dark:text-gray-300 font-medium min-w-[50px] justify-center">
             {(zoom * 100).toFixed(0)}%
           </div>
           <button
             onClick={() => setZoom(z => Math.min(3, z + 0.1))}
-            className="p-2 rounded-lg border dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800"
+            className="p-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
             title="Zoom in"
           >
-            <ZoomIn />
+            <ZoomIn className="w-5 h-5" />
           </button>
           <div className="ml-auto" ref={toolbarRef}>
             <SelectionToolbar
@@ -121,10 +121,10 @@ export const GlyphGrid: React.FC = () => {
           <button
             key={glyph.index}
             onClick={(e) => handleGlyphClick(glyph, e)}
-            className={`relative aspect-square border rounded-lg p-2 transition-colors flex flex-col items-center justify-center ${
+            className={`relative aspect-square border rounded-lg p-2 transition-all flex flex-col items-center justify-center ${
               selectedGlyphs.has(glyph.index)
-                ? 'bg-blue-50 border-blue-500 dark:bg-blue-900/20 dark:border-blue-400'
-                : 'hover:bg-gray-50 dark:hover:bg-gray-800 dark:border-gray-700'
+                ? 'bg-blue-50 border-blue-500 shadow-md dark:bg-blue-900/20 dark:border-blue-400'
+                : 'bg-white border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-sm dark:bg-gray-800 dark:hover:bg-gray-700 dark:border-gray-700'
             }`}
             title={`Click to copy, ${navigator.platform.includes('Mac') ? 'Cmd' : 'Ctrl'}+Click to select`}
           >
