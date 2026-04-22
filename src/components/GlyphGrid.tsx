@@ -8,8 +8,7 @@ import { SelectionToolbar } from './SelectionToolbar';
 import { Glyph } from '../types/font';
 
 export const GlyphGrid: React.FC = () => {
-  const { getCurrentFont } = useFontStore();
-  const currentFont = getCurrentFont();
+  const { glyphs, metadata } = useFontStore();
   const { isLoading } = useFont();
   const { copied, copyToClipboard } = useClipboard();
   const { selectedGlyphs, toggleSelection, selectAll, clearSelection } = useSelection();
@@ -18,8 +17,6 @@ export const GlyphGrid: React.FC = () => {
   const [category, setCategory] = useState<string>('all');
   const toolbarRef = useRef<HTMLDivElement>(null);
 
-  const glyphs = currentFont?.glyphs || [];
-  const metadata = currentFont?.metadata;
   const categories = ['all', ...new Set(glyphs.map(g => g.category))];
   
   const filteredGlyphs = glyphs.filter(glyph => {

@@ -4,11 +4,9 @@ import { useFont } from '../hooks/useFont';
 
 export const FontPreview: React.FC = () => {
   const [text, setText] = useState('The quick brown fox jumps over the lazy dog');
-  const { getCurrentFont } = useFontStore();
-  const currentFont = getCurrentFont();
+  const { metadata } = useFontStore();
   const { isLoading, error } = useFont();
 
-  const metadata = currentFont?.metadata;
   const fontStyle = metadata ? {
     fontFamily: metadata.familyName,
     fontSize: '1.5rem',
