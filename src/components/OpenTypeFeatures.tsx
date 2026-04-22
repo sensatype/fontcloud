@@ -2,7 +2,9 @@ import React from 'react';
 import { useFontStore } from '../store/fontStore';
 
 export const OpenTypeFeatures: React.FC = () => {
-  const { features } = useFontStore();
+  const { getCurrentFont } = useFontStore();
+  const currentFont = getCurrentFont();
+  const features = currentFont?.features || [];
 
   return (
     <div className="p-4 bg-gray-800 rounded-lg">

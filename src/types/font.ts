@@ -21,3 +21,11 @@ export interface OpenTypeFeature {
   description: string;
   enabled: boolean;
 }
+
+export interface Font {
+  id: string;
+  buffer: ArrayBuffer;
+  metadata: FontMetadata;
+  glyphs: Glyph[];
+  features: OpenTypeFeature[];
+}
